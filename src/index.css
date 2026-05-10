@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    'PingFang SC',
+    'Microsoft YaHei UI',
+    'Microsoft YaHei',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: rgba(236, 238, 242, 0.92);
+  background-color: #08090b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #7eb8ae;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9ecec4;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+
+code {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  margin: 0 2px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/**
+ * 必须高于 preload 里的 .app-loading-wrap（z-index: 9），否则启动后一段时间里
+ * 首次点击会落到加载遮罩上，输入框需要多点一次才能聚焦。
+ */
+#root {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}

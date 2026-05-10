@@ -1,0 +1,55 @@
+{
+  "name": "story-stock-desktop",
+  "version": "0.1.0",
+  "main": "dist-electron/main/index.js",
+  "productName": "易剪",
+  "description": "易剪：长文案智能分段、多站素材检索、豆包配音与成片导出",
+  "author": "草鞋没号 <308487730@qq.com>",
+  "license": "MIT",
+  "private": true,
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777/"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/run-vite-dev.mjs",
+    "build": "tsc && vite build && electron-builder",
+    "build:renderer": "tsc && vite build",
+    "release": "npm run build",
+    "release:mac": "npm run build:renderer && electron-builder --mac",
+    "release:win": "npm run build:renderer && electron-builder --win",
+    "release:win-zip": "npm run build:renderer && electron-builder --win zip --x64",
+    "release:linux": "npm run build:renderer && electron-builder --linux",
+    "pack": "electron-builder",
+    "preview": "vite preview",
+    "pretest": "vite build --mode=test",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@volcengine/openapi": "^1.36.1",
+    "dotenv": "^16.4.7",
+    "electron-updater": "^6.3.9",
+    "ffmpeg-static": "^5.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.2.0",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.49",
+    "postcss-import": "^16.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.4.2",
+    "vite": "^5.4.11",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vitest": "^2.1.5"
+  }
+}

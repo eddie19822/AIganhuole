@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.yijian.desktop",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}",
+    "buildResources": "build"
+  },
+  "files": ["dist-electron", "dist", "package.json"],
+  "mac": {
+    "category": "public.app-category.productivity",
+    "artifactName": "${productName}_${version}_mac_universal.${ext}",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["universal"]
+      },
+      {
+        "target": "zip",
+        "arch": ["universal"]
+      }
+    ]
+  },
+  "dmg": {
+    "title": "${productName} ${version}"
+  },
+  "win": {
+    "artifactName": "${productName}_${version}_${arch}.${ext}",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ]
+  },
+  "portable": {
+    "artifactName": "${productName}_${version}_${arch}_portable.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false,
+    "installerLanguages": ["zh_CN", "en_US"],
+    "shortcutName": "易剪",
+    "menuCategory": false
+  },
+  "linux": {
+    "artifactName": "${productName}_${version}_${arch}.${ext}",
+    "category": "Video",
+    "target": ["AppImage"],
+    "maintainer": "易剪"
+  }
+}
